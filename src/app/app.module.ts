@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MaterialModule
   ],
   providers: [],
