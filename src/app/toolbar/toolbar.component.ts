@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '200px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('Dialog closed');
+    });
+  }
 
   ngOnInit() {
   }
