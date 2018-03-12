@@ -1,3 +1,11 @@
-<p>
-  dialog works!
-</p>
+<form [formGroup]="requestForm">
+  <mat-form-field class="example-full-width">
+    <input matInput formControlName="searchText" placeholder="Search text">
+  </mat-form-field>
+</form>
+
+<div class="flex">
+  <span class="spacer"></span>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button [mat-dialog-close]="requestForm.value" [disabled]="!requestForm.valid">OK</button>
+</div>

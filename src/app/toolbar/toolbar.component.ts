@@ -13,12 +13,11 @@ export class ToolbarComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '200px',
       data: {}
     });
 
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('Dialog closed');
+    dialogRef.afterClosed().subscribe((object) => {
+      console.log(object);
     });
   }
 
