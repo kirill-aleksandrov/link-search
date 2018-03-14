@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DialogComponent } from './dialog/dialog.component';
 
+import { TabsService } from './services/tabs.service';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DialogComponent } from './dialog/dialog.component';
   entryComponents: [
     DialogComponent
   ],
-  providers: [],
+  providers: [
+    TabsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
