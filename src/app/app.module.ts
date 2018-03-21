@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -10,16 +11,20 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DialogComponent } from './dialog/dialog.component';
 
 import { TabsService } from './services/tabs.service';
+import { SnippetsService } from './services/snippets.service';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    DialogComponent
+    DialogComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule
@@ -28,7 +33,8 @@ import { TabsService } from './services/tabs.service';
     DialogComponent
   ],
   providers: [
-    TabsService
+    TabsService,
+    SnippetsService
   ],
   bootstrap: [AppComponent]
 })
