@@ -2,14 +2,14 @@
   <mat-tab *ngFor="let tab of objectKeys(tabsService.tabs)">
 
     <ng-template mat-tab-label>
-      {{ tabsService.tabs[tab].name }}
+      {{ tabsService.tabs[tab].title }}
       <button mat-icon-button (click)="tabsService.closeTab(tab)">
         <mat-icon>close</mat-icon>
       </button>
     </ng-template>
 
-    {{ tabsService.tabs[tab].content }}
-    <app-table></app-table>
+<!--    {{ tabsService.tabs[tab].data | async | json }}-->
+    <app-table [dataSource]="tabsService.tabs[tab].data"></app-table>
 
   </mat-tab>
 </mat-tab-group>

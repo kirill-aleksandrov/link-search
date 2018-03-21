@@ -1,27 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Tab } from '../types/tab';
+import { SnippetsService } from './snippets.service';
 
 @Injectable()
 export class TabsService {
 
-  public tabs: Array<any> = [
-    {
-      name: 'Tab 1',
-      content: 'Content 1'
-    },
-    {
-      name: 'Tab 2',
-      content: 'Content 2'
-    }
-  ];
+  public tabs: Tab[] = [];
 
-  constructor() {
+  constructor(private snippetService: SnippetsService) {
   }
 
-  addTab(name: String, text: String) {
+  addTab(name: string, text: string) {
     this.tabs.push({
-      name: name,
-      content: text
+      title: name,
+      data: this.snippetService.getSnippets(text)
     });
+    console.log(this.tabs);
   }
 
   closeTab(tabKey: number) {

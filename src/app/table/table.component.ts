@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Snippet } from '../types/snippet';
 
 @Component({
   selector: 'app-table',
@@ -7,18 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  dataSource = [
-    {
-      title: 'Wikipedia',
-      link: 'https://www.wikipedia.org/',
-      snippet: 'Wikipedia is a free online encyclopedia, created and edited by volunteers around the world and hosted by the Wikimedia Foundation.'
-    }
-  ];
+  @Input() dataSource: Observable<Snippet[]>;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.dataSource.subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }
