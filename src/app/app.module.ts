@@ -9,10 +9,11 @@ import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { TableComponent } from './table/table.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 import { TabsService } from './services/tabs.service';
 import { SnippetsService } from './services/snippets.service';
-import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TableComponent } from './table/table.component';
     AppComponent,
     ToolbarComponent,
     DialogComponent,
-    TableComponent
+    TableComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,

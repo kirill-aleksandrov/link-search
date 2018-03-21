@@ -1,17 +1,2 @@
 <app-toolbar></app-toolbar>
-
-<mat-tab-group >
-  <mat-tab *ngFor="let tab of objectKeys(tabsService.tabs)">
-
-    <ng-template mat-tab-label>
-      {{ tabsService.tabs[tab].name }}
-      <button mat-icon-button (click)="tabsService.closeTab(tab)">
-        <mat-icon>close</mat-icon>
-      </button>
-    </ng-template>
-
-    {{ tabsService.tabs[tab].content }}
-    <app-table></app-table>
-
-  </mat-tab>
-</mat-tab-group>
+<app-tabs></app-tabs>
