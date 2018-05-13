@@ -1,6 +1,22 @@
 <form [formGroup]="requestForm">
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="full-width">
     <input matInput formControlName="searchText" placeholder="Search text">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-select placeholder="Language">
+      <mat-option *ngFor="let lang of languages" [value]="lang">
+        {{ lang }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput formControlName="tfIdfThreshold" placeholder="TF-IDF threshold">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput formControlName="tfIdfTextFilename" placeholder="TF-IDF text filename">
   </mat-form-field>
 </form>
 

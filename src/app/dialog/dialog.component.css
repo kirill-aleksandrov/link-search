@@ -1,7 +1,12 @@
+.full-width {
+  width: 100%;
+}
+
 .flex {
-  display: flex;
+display: flex;
 }
 
 .spacer {
-  flex: 1 1 auto;
+flex: 1 1 auto;
 }
+
