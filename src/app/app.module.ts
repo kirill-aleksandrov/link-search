@@ -14,6 +14,7 @@ import { TabsComponent } from './tabs/tabs.component';
 
 import { TabsService } from './services/tabs.service';
 import { SnippetsService } from './services/snippets.service';
+import { NgxElectronModule } from 'ngx-electron';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { SnippetsService } from './services/snippets.service';
   ],
   imports: [
     BrowserModule,
+    NgxElectronModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

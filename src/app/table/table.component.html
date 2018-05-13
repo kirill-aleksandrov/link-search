@@ -4,7 +4,7 @@
     <mat-header-cell *matHeaderCellDef>Title and link</mat-header-cell>
     <mat-cell *matCellDef="let item">
       {{item.title}} <br>
-      {{item.link}}
+      <a href="" (click)="$event.preventDefault();openInBrowser(item.link)">{{item.link}}</a>
     </mat-cell>
   </ng-container>
 
