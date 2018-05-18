@@ -21,9 +21,10 @@ export class SnippetsService {
 
   getSnippets(text: string): Observable<Snippet[]> {
     return this.getDataFromGoogle(text)
-      .map((data: any): Snippet[] => {
+      .map((data: any): Snippet[] => {    // observable map
+
         return data.items
-          .map((item: any): Snippet => {
+          .map((item: any): Snippet => {  // array map
             return {
               title: item.title,
               link: item.link,
@@ -31,6 +32,7 @@ export class SnippetsService {
               relevance: undefined
             };
           });
+
       });
   }
 
