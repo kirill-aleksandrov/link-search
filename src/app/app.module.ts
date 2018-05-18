@@ -16,6 +16,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TabsService } from './services/tabs.service';
 import { SnippetsService } from './services/snippets.service';
 import { ExecService } from './services/exec.service';
+import { DialogService } from './services/dialog.service';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ExecService } from './services/exec.service';
   providers: [
     TabsService,
     SnippetsService,
-    ExecService
+    ExecService,
+    DialogService
   ],
   bootstrap: [AppComponent]
 })

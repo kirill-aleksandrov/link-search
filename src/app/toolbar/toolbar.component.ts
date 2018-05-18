@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { DialogComponent } from '../dialog/dialog.component';
-import { TabsService } from '../services/tabs.service';
+import { DialogService } from '../services/dialog.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,18 +8,10 @@ import { TabsService } from '../services/tabs.service';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private tabsService: TabsService) { }
+  constructor(private dialogService: DialogService) { }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe((object) => {
-      if (object) {
-        this.tabsService.addTab(object.searchText, object.searchText);
-      }
-    });
+    this.dialogService.openDialog();
   }
 
   ngOnInit() {

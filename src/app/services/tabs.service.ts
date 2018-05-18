@@ -10,12 +10,8 @@ export class TabsService {
   constructor(private snippetService: SnippetsService) {
   }
 
-  addTab(name: string, text: string) {
-    this.tabs.push({
-      title: name,
-      data: this.snippetService.getSnippets(text)
-    });
-    console.log(this.tabs);
+  addTab(tab: Tab) {
+    this.tabs.push(tab);
   }
 
   closeTab(tabKey: number) {

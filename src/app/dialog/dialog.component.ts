@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',
@@ -18,6 +18,11 @@ export class DialogComponent implements OnInit {
     this.requestForm = this.fb.group({
       searchText: ['', Validators.required],
       language: ['English', Validators.required],
+      pages: [1, [
+        Validators.required,
+        Validators.min(1),
+        Validators.pattern(/\d+/)
+      ]],
       tfIdfTextFilename: ['', Validators.required],
       tfIdfThreshold: [0.001, Validators.required],
     });
