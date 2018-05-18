@@ -8,5 +8,6 @@ export const environment = {
   google: {
     cx: '007521688152478877708:axcia-bmvvm',
     key: 'AIzaSyA-M2pw_BRDpntIvUW76iFzsIr_IE060sk'
-  }
+  },
+  execPath: 'C:\\Users\\Kirill\\Documents\\Visual Studio 2015\\Projects\\Diplom\\Debug\\Diplom.exe'
 };

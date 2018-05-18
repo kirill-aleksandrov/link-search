@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SnippetsService } from './services/snippets.service';
+import { ExecService } from './services/exec.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,7 @@ import { SnippetsService } from './services/snippets.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private snippetsService: SnippetsService) {
-    /*this.snippetsService.getSnippets('wikipedia')
-      .subscribe((snippets) => {
-        console.log(snippets);
-      });*/
+  constructor(private execService: ExecService) {
+    execService.exec();
   }
 }

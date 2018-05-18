@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxElectronModule } from 'ngx-electron';
 
 import { MaterialModule } from './material/material.module';
 
@@ -14,7 +15,7 @@ import { TabsComponent } from './tabs/tabs.component';
 
 import { TabsService } from './services/tabs.service';
 import { SnippetsService } from './services/snippets.service';
-import { NgxElectronModule } from 'ngx-electron';
+import { ExecService } from './services/exec.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NgxElectronModule } from 'ngx-electron';
   ],
   providers: [
     TabsService,
-    SnippetsService
+    SnippetsService,
+    ExecService
   ],
   bootstrap: [AppComponent]
 })

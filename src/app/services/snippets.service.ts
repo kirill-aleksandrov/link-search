@@ -27,7 +27,8 @@ export class SnippetsService {
             return {
               title: item.title,
               link: item.link,
-              snippet: item.snippet.replace('\n', '')
+              snippet: item.snippet.replace('\n', ''),
+              relevance: undefined
             };
           });
       });
