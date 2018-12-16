@@ -4,13 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import { Snippet } from '../types/snippet';
 import 'rxjs/add/operator/map';
 import { forkJoin } from 'rxjs/observable/forkJoin';
+import { mergeMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import * as _ from 'lodash';
+import { ExecService } from './exec.service';
 
 @Injectable()
 export class SnippetsService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private execService: ExecService) {
   }
 
   private getPageFromGoogle(text: string, page: number): Observable<Object> {
@@ -44,14 +46,16 @@ export class SnippetsService {
 
   getSnippets(request: string, pages: number) {
     pages = Number(pages);
-    console.log(_.range(1, pages + 1), '1');
     const pagesObservables = _.range(1, pages + 1)
       .map((page: number): Observable<Snippet[]> => {
         return this.getPageSnippets(request, page);
       });
 
     return forkJoin(pagesObservables)
-      .map((results) => _.flatten(results));
+      .map((results) => _.flatten(results))
+      .pipe(
+        mergeMap((snippets) => Promise.all(snippets.map((snippet) => this.execService.exec(snippet, request))))
+      );
   }
 
 }

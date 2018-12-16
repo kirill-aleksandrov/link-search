@@ -7,7 +7,6 @@ import { ExecService } from './services/exec.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private execService: ExecService) {
-    execService.exec();
+  constructor() {
   }
 }

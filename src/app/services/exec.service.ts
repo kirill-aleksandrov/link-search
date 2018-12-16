@@ -10,26 +10,30 @@ export class ExecService {
 
   constructor() { }
 
-  async exec(/*snippet: Snippet, request: string*/) {
+  async exec(snippet: Snippet, request: string) {
     const snippetFile = await file({prefix: 'link-search-', postfix: '.txt'});
     const requestFile = await file({prefix: 'link-search-', postfix: '.txt'});
 
-    console.log(snippetFile, requestFile);
+    fs.writeFile(snippetFile.path, snippet.snippet);
+    fs.writeFile(requestFile.path, request);
 
-    fs.writeFile(snippetFile.path, 'What a wonderful world');
-    fs.writeFile(requestFile.path, 'What a wonderful world');
+    let result;
 
     try {
-      const stdout = await spawnPromise(environment.execPath, [
+      result = await spawnPromise(environment.execPath, [
         `--sample`, `${requestFile.path}`,
         `--test`, `${snippetFile.path}`
       ], {
         cwd: environment.cwd,
       });
-      console.log(stdout);
     } catch (e) {
       console.error(e);
     }
+
+    snippet.score = result.match(/Score = (.+?)$/m)[1];
+    snippet.percentage = result.match(/Percent = (.+?)%$/m)[1];
+
+    return snippet;
   }
 
 }

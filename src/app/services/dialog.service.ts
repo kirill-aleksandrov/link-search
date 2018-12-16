@@ -19,7 +19,6 @@ export class DialogService {
 
     dialogRef.afterClosed().subscribe((object) => {
       if (object) {
-        console.log(object);
         this.tabsService.addTab({
           title: object.searchText,
           data: this.snippetService.getSnippets(object.searchText, object.pages)
