@@ -23,8 +23,6 @@ export class DialogComponent implements OnInit {
         Validators.min(1),
         Validators.pattern(/\d+/)
       ]],
-      tfIdfTextFilename: ['', Validators.required],
-      tfIdfThreshold: [0.001, Validators.required],
     });
   }
 
