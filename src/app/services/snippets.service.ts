@@ -30,7 +30,8 @@ export class SnippetsService {
             title: item.title,
             link: item.link,
             snippet: item.snippet.replace('\n', ''),
-            relevance: undefined
+            score: undefined,
+            percentage: undefined,
           };
         });
 

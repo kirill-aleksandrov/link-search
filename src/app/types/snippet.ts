@@ -2,5 +2,6 @@ export class Snippet {
   title: string;
   link: string;
   snippet: string;
-  relevance: number;
+  score: number;
+  percentage: number;
 }

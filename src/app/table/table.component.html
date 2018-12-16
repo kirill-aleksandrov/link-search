@@ -13,7 +13,17 @@
     <mat-cell *matCellDef="let item">{{item.snippet}} </mat-cell>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="['title', 'snippet']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['title', 'snippet'];"></mat-row>
+  <ng-container matColumnDef="score">
+    <mat-header-cell *matHeaderCellDef>Score</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.score}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="percentage">
+    <mat-header-cell *matHeaderCellDef>Percentage</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.percentage}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['title', 'snippet', 'score', 'percentage']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['title', 'snippet', 'score', 'percentage'];"></mat-row>
 
 </mat-table>

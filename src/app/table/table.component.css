@@ -1,3 +1,7 @@
 .cdk-column-title {
   flex: 0 0 40%;
 }
+
+.cdk-column-snippet {
+  flex: 0 0 40%;
+}
